@@ -126,8 +126,8 @@
                 </div>
                <div class="row remove-li">
                     <ul class="col-md-12 col-sm-12">
-                        <li class="col-md-6 col-sm-6">One by one</li>
-                        <li class="col-md-6 col-sm-6">All</li>
+                        <li class="col-md-6 col-sm-6"><a href="#">One by one</a></li>
+                        <li class="col-md-6 col-sm-6"><a>All</a></li>
                     </ul>
                 </div>
             </div>

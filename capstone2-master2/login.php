@@ -18,7 +18,7 @@
  			$_SESSION['username'] = $username;
  			$_SESSION['fullname'] = $fullname;
  			$_SESSION['password'] = $password;
- 			$_SESSION['id'];
+ 			$_SESSION['id'] = $id;
  			$_SESSION['fullname'] = $fullname;
  			header('location:index.php');
  			// $_SESSION['role'] = $role;

@@ -4,6 +4,9 @@
 		    Select image to upload:
 		    <input class='btn btn-default' type='file' name='fileToUpload' id='fileToUpload'>
 		    <input class='btn btn-info' type='submit' value='Upload Image' name='submit11'>
+		</form>
+		<form>
+		<input class='btn btn-info' type='submit' value='Upload Image' name='submit11'>
 		</form>";
 	}
 	require 'loginhome.php';

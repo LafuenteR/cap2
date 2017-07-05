@@ -10,75 +10,8 @@
     <link rel="stylesheet" type="text/css" href="css/font-awesome.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <style type="text/css">
-    .nav-header-color{
-    	/*background: linear-gradient(to bottom, #3399ff 0%, #ccffff 100%);*/
-    	/*background: linear-gradient(to bottom, #0033cc 0%, #66ccff 50%);*/
-    	/*background: linear-gradient(to bottom, #0033cc 0%, #66ccff 100%);*/
-    	background: white;
-    	border: none;
-    	/*border-color: #fcf8e3;*/
-    }
-    .navbar{
-    	border: none;
-    }
-    .sign-log-border{
-    	border: 1px solid black;
-    	margin-bottom: 30px;
-    }
-    #log-in-div, #sign-up-h5{
-    	display: none;
-    }
- /*    .nav-header-color .navbar-header>a{
-    color: black;
-    }
-     .nav-header-color .navbar-header>a{
-    	color: red;
-    }*/
-    .btn-sm{
-        width: 100%;
-        height: 100%;
-    }
-    .foot{
-        padding-left: 0;
-        padding-right: 0;
-        height: 50px;
-    }
-    .container-fix-footer{
-        margin-left: 55px;
-        margin-right: 55px;
-    }
-     .navbar-collapse .navbar-nav>li>a, .nav-header-color .navbar-header>a{
-    color: black;
-    }
-    .navbar-collapse .navbar-nav>li>a:hover{
-        color: red;
-    }
-   .imgi{
-        width: 80px;
-    }
-/*    .special-img 
-    {
-        position: relative;
-        top: -5px;
-        float: left;
-        left: -5px;
-    }*/
-    /*.left-sidebar{
-        text-align: center;
-        border-right: 1px solid grey;*/
-        /*position: fixed; */
-        /*top: 300;*/
-    /*}*/
-   input[type=file] {
-    display: inline;
-}
-.backcolor{
-  background-color: grey;
-}
-
-   </style>
-</head>
+    <link rel="stylesheet" type="text/css" href="style.css">
+ </head>
 <body>
 	<nav class="navbar navbar-inverse center-block">
     	<div class="container-fluid nav-header-color">
@@ -112,7 +45,7 @@
                      <!--   <img src="http://placehold.it/50x50" class="profile-image special-img img-circle"> </a>
                     <!-- </a> -->
                 <!-- </li> --> 
-                <li><a href="profile.php">Hi, 
+                <li><a href="profile1.php">Hi, 
                 <?php 
                 require 'login.php';
                 require 'signup.php';
@@ -155,7 +88,7 @@
                <!--  <button type="button" class="btn btn-default btn-sm">
                     <span class="glyphicon glyphicon-upload"></span> Upload
                  </button> -->
-                 <img src="images/whitewalker.jpg" class="imgi img-circle" alt="Cinque Terre"><br>
+                <!--  <img src="images/whitewalker.jpg" class="imgi img-circle" alt="Cinque Terre"><br>
                  <a href="#">
                      <h3><?php echo $_SESSION['fullname']; ?></h3>
                      <h4>(<?php echo $_SESSION['username'];?>)</h4>
@@ -189,16 +122,17 @@
                                       <br>
                                        <br>
                                         <br>
-
+ -->
 
             </div>
             <div class="backcolor col-md-8 col-sm-8">
             
-                <hr>
-                <div class="container" style="height: 2000px;">
+             <!--    <hr> -->
+              <!--   <div class="container" style="height: 2000px;"> -->
                     <?php display_content(); ?>
-                </div>
+                <!-- </div> -->
             </div>
+            <div class="col-md-2 col-sm-2"></div>
         </div>
     </div>
     
@@ -211,7 +145,7 @@
                         </button></a> -->
                 </div>
                 <div class=" col-md-8 col-sm-8">
-                <hr>
+                <!-- <hr> -->
                     <div class="center-block col-md-4 col-sm-4 foot">
                         <a href="index.php"><button type="button" class="btn btn-info btn-sm">
                             <span class="glyphicon glyphicon-home"></span> Home
@@ -254,6 +188,7 @@
     $('#fileToUpload').change(function(){
         filePreview(this);
     });
+     
 </script>
 </body>
 

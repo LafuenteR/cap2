@@ -42,29 +42,47 @@ if ($uploadOk == 0) {
 // if everything is ok, try to upload file
 } else {
     if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) {
-        echo "The file ". basename( $_FILES["fileToUpload"]["name"]). " has been uploaded.";
+        // echo "The file ". basename( $_FILES["fileToUpload"]["name"]). " has been uploaded.";
         
-  
+    header('location:index.php');
         require 'connection.php';
         require 'login.php';
         require 'signup.php';
-        $idd = $_SESSION['id'];
-        // if(mysqli_num_rows($result)>0){
-        //     while($row = mysqli_fetch_assoc($result)){
-        //     extract($row);
-        //     // $_SESSION['message'] = 'Login Successfully'; 
-        //     $idd = $_SESSION['id'];
-        // }
-        // $img ="uploads/" . $_POST['fileToUpload'];
-        //  $sql = "INSERT INTO image(img)
-        // VALUES('$img')";
+        $id = $_SESSION['id'];
+        $username = $_SESSION['username'];
+       $sql = "INSERT INTO image(img,user_id,img_username)
+            VALUES('$pic',$id,'$username')";
 
-        mysqli_query($conn,"INSERT INTO image(img)
-            VALUES('$pic')");
+
+        mysqli_query($conn,$sql);
 
        
     } else {
         echo "Sorry, there was an error uploading your file.";
     }
 }
+?>
+<?php
+    // $watermark = '&copy;' . $_SESSION['username']; 
+    // $stamp = imagecreatefromstring($watermark);
+    // $im = imagecreatefromjpeg($target_file) || imagecreatefrompng($target_file);
+    // if(imagesx($im) < 500 || imagesy ($im) < 500)
+    // {
+    //     echo 'images size is too low';
+    //     exit;
+    // }
+    // $marge_right = 0;
+    // $marge_bottom = 0;
+    // $sx = imagesx($stamp);
+    // $sy = imagesy($stamp);
+
+    // imagecopy($im,$stamp,0, imagesy($im) - $sy - $marge_bottom, 0, 0, imagesx, imagesy($stamp));
+
+    // $out="uploads/" . $_FILES['fileToUpload']['name'];
+    // imagejpeg($im,$out);
+    // imagedestroy($im);
+    // echo "<img src=$out>";
+
+    header('Content_type: image/jpeg');
+    
 ?>

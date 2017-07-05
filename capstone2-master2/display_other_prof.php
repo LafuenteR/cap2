@@ -1,21 +1,24 @@
 <?php
- function display_content(){
+ function display_profile(){
  		require 'connection.php';
+        // require 'profile1.php';
         // echo "<div class='container'>";
      		echo "<div id='myNav' class='col-md-12'>";
         			$sql1 = "SELECT img_username from image where user_id=";
  			$sql2 = "SELECT img_id from image";
  			$result1 = mysqli_query($conn,$sql1);
-     		$sql = "SELECT * from image ORDER BY img_id DESC";
+     		$sql = "SELECT * from image";
      		$description = 'sdlmvdhgjlhg;skg;k;fkh;f';
      		$result = mysqli_query($conn,$sql);
      		if(mysqli_num_rows($result)>0){
      			while($row = mysqli_fetch_assoc($result)){
      				extract($row);
+                        // $_SESSION['user_id'] = $user_id;
+                        if($_SESSION['id']==$user_id){
      				// if(!isset($_POST['logout'])){
      					// echo "<div class='col-md-2 col-sm-2 clearfix'></div>";
-     					echo "<div class='col-md-12 col-sm-12 clearfix'>";
-     					echo "<br><br><a href='other_acc.php?current_account=$user_id'><strong>$img_username</strong></a>" . "<br>";
+     					echo "<div class='col-md-6 col-sm-6 clearfix img_prof_size'>";
+     					echo "<br><br><a href='#'><strong>$img_username</strong></a>" . "<br>";
      					
      					echo "<a href='#'><img src='"."uploads/$img'></a><br>"; 
      					echo "$description" . "<br>";
@@ -26,10 +29,11 @@
      					echo "</div>";
      					// echo "<div class='col-md-2 col-sm-2'></div>";
      				// }
+                    }
      			}
      		}
         echo "</div>";
         }
 
-        require_once('loginhome.php');
+        require 'profile1.php';
 ?>
