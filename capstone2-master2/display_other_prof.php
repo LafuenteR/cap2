@@ -1,5 +1,5 @@
 <?php
- function display_profile(){
+ function display_other_profile(){
  		require 'connection.php';
         // require 'profile1.php';
         // echo "<div class='container'>";

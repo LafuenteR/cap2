@@ -1,10 +1,11 @@
+
 <?php
 
 function display_content(){
 require 'connection.php';
 // require 'display_other_prof.php';
 $account_id = $_GET['current_account'];
-$sql = "SELECT * from image where user_id = '$account_id'";
+$sql = "SELECT * from image";
 $result = mysqli_query($conn,$sql);
 while ($row = mysqli_fetch_assoc($result)) {
   extract($row);

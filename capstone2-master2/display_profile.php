@@ -18,7 +18,7 @@
      				// if(!isset($_POST['logout'])){
      					// echo "<div class='col-md-2 col-sm-2 clearfix'></div>";
      					echo "<div class='col-md-6 col-sm-6 clearfix img_prof_size'>";
-     					echo "<br><br><a href='#'><strong>$img_username</strong></a>" . "<br>";
+     					// echo "<br><br><a href='#'><strong>$img_username</strong></a>" . "<br>";
      					
      					echo "<a href='#'><img src='"."uploads/$img'></a><br>"; 
      					echo "$description" . "<br>";

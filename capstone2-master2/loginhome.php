@@ -85,45 +85,7 @@
     <div class="container center-block">
         <div class="row">
             <div class="left-sidebar col-md-2 col-sm-2">
-               <!--  <button type="button" class="btn btn-default btn-sm">
-                    <span class="glyphicon glyphicon-upload"></span> Upload
-                 </button> -->
-                <!--  <img src="images/whitewalker.jpg" class="imgi img-circle" alt="Cinque Terre"><br>
-                 <a href="#">
-                     <h3><?php echo $_SESSION['fullname']; ?></h3>
-                     <h4>(<?php echo $_SESSION['username'];?>)</h4>
-                 </a>
-                 <span>1000 Post</span>
-                 <span>1000 Followers</span>
-                 <span>1000 Following</span>
-                 <br>
-                  <br>
-                   <br>
-                    <br>
-                     <br>
-                      <br>
-                       <br>
-                        <br>
-                         <br>
-                          <br>
-
-                           <br>
-                            <br>
-                             <br>
-                              <br>
-                               <br>
-                                <br> <br> <br>
-                                 <br>
-                                  <br>
-
-                                   <br>
-                                    <br>
-                                     <br>
-                                      <br>
-                                       <br>
-                                        <br>
- -->
-
+      
             </div>
             <div class="backcolor col-md-8 col-sm-8">
             
@@ -188,7 +150,16 @@
     $('#fileToUpload').change(function(){
         filePreview(this);
     });
-     
+    $(document).ready(function(){
+    $("#follow_id").click(function(){
+    $("#unfollow_form").show();
+    $("#follow_form").hide();
+  });
+    $("#unfollow_id").click(function(){
+    $("#follow_form").show();
+    $("#unfollow_form").hide();
+  });
+    }); 
 </script>
 </body>
 
