@@ -25,7 +25,7 @@
              
             </div>
                         <!-- <div class="col-sm-3 col-md-3"></div> -->
-                <div class="col-sm-4 col-md-4">
+              <!--   <div class="col-sm-4 col-md-4">
         <form class="navbar-form" role="search">
         <div class="input-group">
             <input type="text" class="form-control" placeholder="Search" name="q">
@@ -34,7 +34,10 @@
             </div>
         </div>
         </form>
-    </div>
+    </div> -->
+            <?php
+            require 'search.php';
+            display_content1(); ?>
             <div class="collapse navbar-collapse dropdown-content" id="myNavbar">
             
             <ul class="nav navbar-nav navbar-right">
@@ -49,7 +52,6 @@
                 <?php 
                 require 'login.php';
                 require 'signup.php';
-                // var_dump($_SESSION['id']);
                  echo $_SESSION['username']; ?>
                 </a></li>
         
@@ -118,17 +120,26 @@
                         </form> -->
                     </div>
                     <div class="col-md-4 col-sm-4 foot">
-                        <a href="form.php">
+                        <a href="upload_form.php">
                             <button type="button" class="btn btn-info btn-sm">
                                 <span class="glyphicon glyphicon-upload"></span> Upload
                             </button> 
                         </a>
                     </div>
                     <div class="col-md-4 col-sm-4 foot">
+                        <a href="notification.php">
                         <button type="button" class="btn btn-info btn-sm">
                             <span class="glyphicon glyphicon-globe"></span> Notifications
-                        </button>   
+                        </button> 
+                        </a>  
                     </div>
+                     <!--    <div class="col-md-4 col-sm-4 foot">
+                        <a href="#" title="Notifications" data-toggle="popover" data-placement="top" data-content= 'display_content10();'>
+                        <button type="button" class="btn btn-info btn-sm">
+                            <span class="glyphicon glyphicon-globe"></span> Notifications
+                        </button> 
+                        </a>  
+                    </div> -->
                 </div>
                <!--  <div class="col-md-4 col-sm-4">
                     <h1>Notifications</h1>
@@ -160,6 +171,9 @@
     $("#unfollow_form").hide();
   });
     }); 
+    $(document).ready(function(){
+    $('[data-toggle="popover"]').popover();   
+});
 </script>
 </body>
 

@@ -1,12 +1,10 @@
 <?php
 	function display_content(){	 
-	echo "<form action='upload.php' method='POST' enctype='multipart/form-data' id='uploadform'>
+	echo "<form style='text-align:center' action='upload.php' method='POST' enctype='multipart/form-data' id='uploadform'>
 		    Select image to upload:
 		    <input class='btn btn-default' type='file' name='fileToUpload' id='fileToUpload'>
-		    <input class='btn btn-info' type='submit' value='Upload Image' name='submit11'>
-		</form>
-		<form>
-		<input class='btn btn-info' type='submit' value='Upload Image' name='submit11'>
+		    <input class='btn btn-info' type='submit' value='Upload Image' name='submit11'><br>
+		    <input class='form-control' type='text' name='caption' placeholder='Caption...'>
 		</form>";
 	}
 	require 'loginhome.php';

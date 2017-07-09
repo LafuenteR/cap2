@@ -47,15 +47,54 @@ function loop_fullname(){
 function display_content(){
 require 'connection.php';
 $account_id = $_GET['current_account'];
-if($_SESSION['id']==$account_id){
-  header('location:profile1.php');
+$id = $_SESSION['id'];
+if($id==$account_id){
+  // header("location:profile1.php");
+  echo "<div class='col-md-12 col-sm-12'>
+    <img src='images/whitewalker.jpg' class='img-circle col-md-5 col-sm-5' alt='Cinque Terre' width='304' height='236'>
+  <div class='col-md-7 col-sm-7 profile-left'><br><br>
+    <div>
+       <div>
+    <h3>";
+
+    echo loop_fullname(); 
+    echo"       </h3>
+  </div>
+      <div class='col-md-9'>";
+      
+      echo "</div>
+  </div>
+  <div class='col-md-12 com-sm-12 follow'>
+    <div class='col-md-4 col-sm-4 follow'><strong>";
+    echo post(); 
+    echo "&nbsp; post</strong></div>
+    <div class='col-md-4 col-sm-4 follow'><strong>";
+    echo follower();
+     echo "&nbsp;followers</strong></div>
+    <div class='col-md-4 col-sm-4 follow'><strong>";
+      echo follow_ko();
+    echo  "&nbsp;following</strong></div>
+  </div><br>
+  <div id='edit'>
+      <form>
+          <input type='submit' name='edit' value='Edit Profile'>
+      </form>
+  </div>
+  </div>
+   
+    <div class='col-md-12 col-sm-12'>
+    <hr>
+  </div>";
+
+  display_other_profile();
+  echo"         
+  
+</div>";
 }
 else{
 echo "
 <div class='col-md-12 col-sm-12'>
-  <a href='images/whitewalker.jpg' download=''>
     <img src='images/whitewalker.jpg' class='img-circle col-md-5 col-sm-5' alt='Cinque Terre' width='304' height='236'>
-  </a>
   <div class='col-md-7 col-sm-7 profile-left'><br><br>
     <div>
       <strong class='col-md-3'><h4>";
@@ -65,15 +104,18 @@ echo "
       <div class='col-md-9'>";
       if(follow()) {
       echo"
-      <form id='unfollow_form' method='POST' action='unfollow.php?current_account=$account_id'>
-      <input class='btn btn-info' type='submit' name='unfollow' value='Unfollow' id='unfollow_id'>
+      <form id='unfollow_form' method='POST' action='"; echo unfollow(); 
+      echo"'>";
+      echo"
+      <input class='btn btn-info unfollow_id' type='submit' name='unfollow' value='Unfollow' id='unfollow_id'>
       </form>";
+      
     }else{
         echo"
-      <form id='follow_form' method='POST' action='followed.php?current_account=$account_id'>
+      <form id='follow_form' method='POST' action='"; echo followed(); echo"'>
       <input class='btn btn-default' type='submit' name='follow' value='Follow' id='follow_id'>
       </form>";
-  }
+        }
       echo "</div>
   </div>
   <div class='col-md-12 com-sm-12 follow'>
@@ -130,8 +172,6 @@ echo "
                         
                         echo "<a href='#'><img src='"."uploads/$img'></a><br>"; 
                         echo "<form><input type='submit' name='like'  value='Like'</form>";
-                        echo "<form><input type='submit' name='edit'  value='Edit'</form>";
-                        echo "<form><input type='submit' name='delete'  value='Delete'</form>";
                         echo "<form><input type='submit' name='download'  value='Download'</form>";
                         echo "</div>";
                                           
@@ -164,6 +204,7 @@ function post(){
 function follow_ko(){
   $account_id = $_GET['current_account'];
   require 'connection.php';
+  $id = $_SESSION['id'];
   $sql2 = "SELECT COUNT(`finollow_ko`) as count_finollow FROM `Follow` WHERE user_id = '$account_id'";
   $result2 = mysqli_query($conn,$sql2);
     while($row = mysqli_fetch_assoc($result2)) {
@@ -189,6 +230,46 @@ function follow_ko(){
 
 }
 }
+?>
+<?php
+    function unfollow(){
+    if(isset($_POST['unfollow'])){
+    session_start();
+    require 'connection.php';
+    $account_id = $_GET['current_account'];
+    // header("Refresh:0");
+    header('location:profile.php?current_account=$account_id');
+     require 'signup.php';
+        $id = $_SESSION['id'];
+        $username = $_SESSION['username'];
+      $sql = "DELETE FROM Follow WHERE finollow_ko = '$account_id' AND user_id =$id";
+        mysqli_query($conn,$sql);
+        
+  }}
+  // require 'profile.php';}
+?>
+<?php 
+    function followed(){
+    if(isset($_POST['follow'])){
+    $account_id = $_GET['current_account'];
+    // header('location:profile.php?current_account=$account_id');
+    // header("Refresh:0");
+    session_start();
+    require 'connection.php';
+
+
+     require 'signup.php';
+        $id = $_SESSION['id'];
+        $username = $_SESSION['username'];
+        $sql = "INSERT INTO Follow (finollow_ko,user_id)
+            VALUES('$account_id',$id)";
+        mysqli_query($conn,$sql);
+        // header('location:profile.php?current_account=$account_id');
+
+      }  
+        
+  }
+  // require 'profile.php';
 ?>
 
 

@@ -48,10 +48,11 @@ if ($uploadOk == 0) {
         require 'connection.php';
         require 'login.php';
         require 'signup.php';
+        $caption = $_POST['caption'];
         $id = $_SESSION['id'];
         $username = $_SESSION['username'];
-       $sql = "INSERT INTO image(img,user_id,img_username)
-            VALUES('$pic',$id,'$username')";
+       $sql = "INSERT INTO image(img,user_id,img_username,caption)
+            VALUES('$pic',$id,'$username','$caption')";
 
 
         mysqli_query($conn,$sql);
