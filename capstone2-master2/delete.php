@@ -13,7 +13,6 @@ else
 		$current_img = $_GET['current_img'];
 
 		if(isset($_POST['save'])){
-			$caption = $_POST['caption'];
 		$sql = "DELETE FROM image where img_id = '$current_img'";
 		mysqli_query($conn,$sql);
 		header('location:index.php');

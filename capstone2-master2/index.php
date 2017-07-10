@@ -13,7 +13,7 @@ function get_title(){
         // echo "<div class='container'>";
         // require 'login.php';
         // session_start();
-     		echo "<div id='myNav' class='col-md-12'>";
+     		// echo "<div id='myNav' class='col-md-12'>";
         			$sql1 = "SELECT img_username from image where user_id=";
  			$sql2 = "SELECT img_id from image";
 
@@ -62,10 +62,10 @@ function get_title(){
      				// }
      			}
      		}
-        echo "</div>";
+        // echo "</div>";
         }
 
-        require_once('loginhome.php');
+        require 'loginhome.php' ;
 }
 
 

@@ -37,8 +37,8 @@ padding-right: 0;
 height: 50px;
 }
 .container-fix-footer{
-margin-left: 55px;
-margin-right: 55px;
+margin-left: 0;
+/*margin-right: 55px;*/
 }
 .navbar-collapse .navbar-nav>li>a, .nav-header-color .navbar-header>a{
 color: black;

@@ -100,13 +100,10 @@
         </div>
     </div>
     
-    <!-- <div class="container" style="position: fixed; bottom: 0;"> -->
-        <div class="container center-block container-fix-footer" style="position: fixed;bottom: 0;">
+            <div class="container container-fix-footer center-block" style="position: fixed;bottom: 0;left: 50%;transform: translateX(-50%);margin-right: 0;margin-left: 0;">
             <div class="row center-block">
                 <div class="col-md-2 col-sm-2">
-                  <!--   <a href="google.com"><button type="button" class="btn btn-info btn-sm">
-                            <span class="glyphicon glyphicon-home"></span> Home
-                        </button></a> -->
+                  
                 </div>
                 <div class=" col-md-8 col-sm-8">
                 <!-- <hr> -->
@@ -133,17 +130,9 @@
                         </button> 
                         </a>  
                     </div>
-                     <!--    <div class="col-md-4 col-sm-4 foot">
-                        <a href="#" title="Notifications" data-toggle="popover" data-placement="top" data-content= 'display_content10();'>
-                        <button type="button" class="btn btn-info btn-sm">
-                            <span class="glyphicon glyphicon-globe"></span> Notifications
-                        </button> 
-                        </a>  
-                    </div> -->
+                    
+                 
                 </div>
-               <!--  <div class="col-md-4 col-sm-4">
-                    <h1>Notifications</h1>
-                </div> -->
             </div>
         </div>
     <!-- </div> -->
