@@ -1,5 +1,13 @@
 <?php
-
+session_start();
+if(!isset($_SESSION['username'])){
+    header('location:home.php');
+}
+else
+{
+function get_title(){
+    echo "Notifications";
+}
  function display_content(){
  		require 'connection.php';
             echo "<div id='myNav' class='col-md-12'>";
@@ -26,6 +34,6 @@
      		}
         echo "</div>";
         }
-
+}
         require_once('loginhome.php');
 ?>

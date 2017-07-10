@@ -20,9 +20,13 @@
  			$_SESSION['password'] = $password;
  			$_SESSION['id'] = $id;
  			$_SESSION['fullname'] = $fullname;
+ 			$_SESSION['role'] = $role;
+ 			if ($role=='admin'){
+ 				header('location:admin.php');
+ 			}else{
  			header('location:index.php');
  			// $_SESSION['role'] = $role;
-
+ 		}
  			echo "Login Successfully";
  		}
  			// header('location:home.php');

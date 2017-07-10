@@ -1,4 +1,14 @@
 <?php
+session_start();
+if(!isset($_SESSION['username'])){
+    header('location:home.php');
+}
+else
+{
+function get_title(){
+    echo "Upload";
+}
+
 	function display_content(){	 
 	echo "<form style='text-align:center' action='upload.php' method='POST' enctype='multipart/form-data' id='uploadform'>
 		    Select image to upload:
@@ -7,6 +17,7 @@
 		    <input class='form-control' type='text' name='caption' placeholder='Caption...'>
 		</form>";
 	}
+}
 	require 'loginhome.php';
 ?>
 

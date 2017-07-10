@@ -1,7 +1,11 @@
 <?php
+	// require 'loginhome.php';
+	session_start();
 
-	function display_content(){
-		require 'connection.php';
+	function get_title(){
+		echo "Edit";
+	}
+	require 'connection.php';
 		$current_img = $_GET['current_img'];
 
 		if(isset($_POST['save'])){
@@ -10,6 +14,13 @@
 		mysqli_query($conn,$sql);
 		header('location:index.php');
 		}
+	if(!isset($_SESSION['username'])){
+    header('location:home.php');
+}
+else
+{
+	function display_content(){
+		global $conn;
 	
 	if(isset($_POST['cancel'])){
 
@@ -37,6 +48,7 @@
 		}
 		 echo "</div>";
 	}
+}
 		require 'loginhome.php';
 ?>
 

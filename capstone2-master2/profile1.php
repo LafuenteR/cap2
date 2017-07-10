@@ -1,5 +1,12 @@
 <?php
-
+session_start();
+if(!isset($_SESSION['username'])){
+    header('location:home.php');
+}
+else{
+function get_title(){
+    echo "My Profile";
+}
 function display_content(){
 require 'display_profile.php';
 echo "
@@ -39,7 +46,7 @@ echo "
         </div>";
     }
    require 'loginhome.php';
-
+}
 ?>
 <?php 
 function post(){

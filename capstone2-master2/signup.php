@@ -10,12 +10,12 @@
 
  	if($password == $pw2){
  		$password = sha1($password);
- 		$sql = "INSERT INTO users(fullname,username,password)
- 			VALUES('$fullname','$username','$password')";
+ 		$sql = "INSERT INTO users(fullname,username,password,role)
+ 			VALUES('$fullname','$username','$password','regular')";
  			mysqli_query($conn,$sql);
  			$_SESSION['username'] = $username;
  			$_SESSION['fullname'] = $fullname;
- 			header('location:index.php');
+ 			header('location:home.php');
  	}else{
  		echo "Password did not match";
  	}

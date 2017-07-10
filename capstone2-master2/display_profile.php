@@ -22,10 +22,10 @@
      					
      					echo "<a href='#'><img src='"."uploads/$img'></a><br>"; 
      					echo "$caption" . "<br>";
-     					echo "<form><input type='submit' name='like'  value='Like'</form>";
-     					echo "<a href='edit.php?current_img=$user_id'><input type='submit' name='edit'  value='Edit'></a>";
-     					echo "<form><input type='submit' name='delete'  value='Delete'</form>";
-     					echo "<form><input type='submit' name='download'  value='Download'</form>";
+     					// echo "<form method='POST' action='liked.php?current_account=$img_id'><input type='submit' name='like'  value='Like'></form>";
+     					// echo "<a href='edit.php?current_img=$user_id'><input type='submit' name='edit'  value='Edit'></a>";
+     					// echo "<form><input type='submit' name='delete'  value='Delete'</form>";
+     					// echo "<form><input type='submit' name='download'  value='Download'</form>";
      					echo "</div>";
      					// echo "<div class='col-md-2 col-sm-2'></div>";
      				// }

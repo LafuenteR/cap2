@@ -14,7 +14,8 @@
     	/*background: linear-gradient(to bottom, #0033cc 0%, #66ccff 50%);*/
     	background: linear-gradient(to bottom, #0033cc 0%, #66ccff 100%);
     	border: none;
-    	border-color: #fcf8e3;
+    	/*border-color: #fcf8e3;*/
+    	background: #5bc0de;
     }
     .navbar{
     	border: none;
