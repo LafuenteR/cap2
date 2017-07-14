@@ -12,13 +12,13 @@ else
 		require 'connection.php';
 		$current_img = $_GET['current_img'];
 
-		if(isset($_POST['save'])){
+		if(isset($_POST['yes'])){
 		$sql = "DELETE FROM image where img_id = '$current_img'";
 		mysqli_query($conn,$sql);
 		header('location:index.php');
 		}
 	
-	if(isset($_POST['cancel'])){
+	if(isset($_POST['no'])){
 
 		header('location:index.php');
 		}
@@ -34,11 +34,11 @@ else
 		
 		echo "<div class='col-md-12 col-sm-12 clearfix img-hover'>";
 		echo "<h3><strong>Are you sure you want to delete this item?</strong><h3>";
-		echo "<a href='#'><img src='"."uploads/$img' style='width:100%;'></a><br>";
 		echo "<form method='POST' action=''>";
-		echo "<input class='btn btn-danger' type='submit' name='save' value='Save'>";
-		echo "<input class='btn btn-default' type='submit' name='cancel' value='Cancel'>";
+		echo "<input class='btn btn-danger' type='submit' name='yes' value='Yes'>";
+		echo "<input class='btn btn-default' type='submit' name='no' value='No'>";
 		echo "</form>";
+		echo "<a href='#'><img src='"."uploads/$img' style='width:100%;'></a><br>";
 		echo "</div>";
 		}
 		 echo "</div>";

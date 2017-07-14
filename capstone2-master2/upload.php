@@ -1,9 +1,5 @@
 <?php
 
-// while ($row = mysqli_fetch_assoc($result)) {
-//     extract($row);
-//     $_SESSION['id'] = $userid;
-// }
 $target_dir = "uploads/";
 $target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
 $uploadOk = 1;
@@ -26,7 +22,7 @@ if (file_exists($target_file)) {
     $uploadOk = 0;
 }
 // Check file size
-if ($_FILES["fileToUpload"]["size"] > 500000) {
+if ($_FILES["fileToUpload"]["size"] > 50000000) {
     echo "Sorry, your file is too large.";
     $uploadOk = 0;
 }
@@ -51,8 +47,8 @@ if ($uploadOk == 0) {
         $caption = $_POST['caption'];
         $id = $_SESSION['id'];
         $username = $_SESSION['username'];
-       $sql = "INSERT INTO image(img,user_id,img_username,caption)
-            VALUES('$pic',$id,'$username','$caption')";
+       $sql = "INSERT INTO image(img,user_id,img_username,caption,time_stamp)
+            VALUES('$pic',$id,'$username','$caption',current_timestamp)";
 
 
         mysqli_query($conn,$sql);
@@ -64,25 +60,7 @@ if ($uploadOk == 0) {
 }
 ?>
 <?php
-    // $watermark = '&copy;' . $_SESSION['username']; 
-    // $stamp = imagecreatefromstring($watermark);
-    // $im = imagecreatefromjpeg($target_file) || imagecreatefrompng($target_file);
-    // if(imagesx($im) < 500 || imagesy ($im) < 500)
-    // {
-    //     echo 'images size is too low';
-    //     exit;
-    // }
-    // $marge_right = 0;
-    // $marge_bottom = 0;
-    // $sx = imagesx($stamp);
-    // $sy = imagesy($stamp);
 
-    // imagecopy($im,$stamp,0, imagesy($im) - $sy - $marge_bottom, 0, 0, imagesx, imagesy($stamp));
-
-    // $out="uploads/" . $_FILES['fileToUpload']['name'];
-    // imagejpeg($im,$out);
-    // imagedestroy($im);
-    // echo "<img src=$out>";
 
     header('Content_type: image/jpeg');
     

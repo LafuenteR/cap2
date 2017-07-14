@@ -15,5 +15,4 @@
         
         
 	}
-	// require 'profile.php';
 ?>

@@ -10,40 +10,38 @@ function get_title(){
 function display_content(){
 require 'display_profile.php';
 echo "
-                    <div class='col-md-12 col-sm-12'>
-                    <img src='images/whitewalker.jpg' class='img-circle col-md-5 col-sm-5' alt='Profile' width='304' height='236'>
-                    <div class='col-md-7 col-sm-7 profile-left'>
-                       <br><br><form method='POST' action=''>
-                             <h3>";
-                                echo $_SESSION['fullname'];
-  echo "                          </h3>
-                        </form>
-                        <div class='col-md-12 com-sm-12 follow'>
-                            <div class='col-md-4 col-sm-4 follow'><strong>";
-                            echo post();
-                            echo "&nbsp;post</strong></div>
-                            <div class='col-md-4 col-sm-4 follow'><strong>";
-                            echo follower(); 
-                            echo "&nbsp;followers</strong></div>
-                            <div class='col-md-4 col-sm-4 follow'><strong>"; 
-                            echo follow_ko();
-                            echo"&nbsp;following</strong></div>
-                        </div><br>
-                        <div id='edit'>
-                            <form>
-                                <input type='submit' name='edit' value='Edit Profile'>
-                            </form>
-                        </div>
-                    
-                    </div>
-                    <div class='col-md-12 col-sm-12'>
-                        <hr>
-                    </div>
-                </div>";
-              
-                    display_profile();
-  echo"          </div>
-        </div>";
+    <div class='col-md-12 col-sm-12'>
+      <img src='images/profile.png' class='img-circle col-md-5 col-sm-5' alt='Profile' width='304' height='236'>
+      <div class='col-md-7 col-sm-7 profile-left'><br><br>
+      <form method='POST' action=''>
+      <h3>";
+      echo $_SESSION['fullname'];
+      echo " </h3>
+      </form>
+      <div class='col-md-12 com-sm-12 follow'>
+      <div class='col-md-4 col-sm-4 follow'><strong>";
+        echo post();
+        echo "&nbsp;post</strong></div>
+      <div class='col-md-4 col-sm-4 follow'><strong>";
+        echo follower(); 
+        echo "&nbsp;followers</strong></div>
+      <div class='col-md-4 col-sm-4 follow'><strong>"; 
+        echo follow_ko();
+        echo"&nbsp;following</strong></div>
+  </div><br>
+<div id='edit'>
+
+</div>
+
+</div>
+<div class='col-md-12 col-sm-12'>
+<hr>
+</div>
+</div>";
+
+display_profile();
+echo"</div>
+</div>";
     }
    require 'loginhome.php';
 }

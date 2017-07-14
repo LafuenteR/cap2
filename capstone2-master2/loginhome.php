@@ -1,3 +1,47 @@
+<?php 
+ function display_notifs(){
+        require 'connection.php';
+            echo "<div id='myNav' class='col-md-12 col-sm-12 col-xs-12'>";
+            $sql1 = "SELECT img_username from image where user_id=";
+            $sql2 = "SELECT img_id from image";
+
+            $result1 = mysqli_query($conn,$sql1);
+            $id = $_SESSION['id'];
+            $sql = "SELECT u. username from Follow f, users u where f. finollow_ko = $id AND f. user_id = u .id ORDER BY f. id";
+            $result = mysqli_query($conn,$sql);
+            if(mysqli_num_rows($result)>0){
+                // var_dump($sql);
+                while($row = mysqli_fetch_assoc($result)){
+                    extract($row);
+
+                        echo "<div class='col-md-12 col-sm-12 clearfix img-hover'>";
+                        
+                        echo "<strong>$username</strong> followed you";
+                      
+                        echo "</div>";  
+                        
+                 
+                }
+            }
+        echo "</div>";
+        }
+
+?>
+<?php 
+    function display_upload(){  
+    echo "<form style='text-align:center' action='upload.php' method='POST' enctype='multipart/form-data' id='uploadform'>
+            Select image to upload:
+            <input class='btn btn-default' type='file' name='fileToUpload' id='fileToUpload'>
+            <input class='btn btn-info' type='submit' value='Upload Image' name='submit11'><br>
+            <input class='form-control' type='text' name='caption' placeholder='Caption...'>";
+            echo "<script src='preview.js'>";
+        echo "<?script>";
+        echo "</form>";
+        
+    }
+    
+
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -6,11 +50,15 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="css/font-awesome.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <link rel="stylesheet" type="text/css" href="style.css">
+    <link href="css/lightbox.css" rel="stylesheet">
+    <script src="js/lightbox.min.js"></script>
+
  </head>
 <body>
 	<nav class="navbar navbar-inverse center-block">
@@ -24,34 +72,15 @@
               <a class="navbar-brand" href="index.php">PhotoSharing</a>
              
             </div>
-                        <!-- <div class="col-sm-3 col-md-3"></div> -->
-              <!--   <div class="col-sm-4 col-md-4">
-        <form class="navbar-form" role="search">
-        <div class="input-group">
-            <input type="text" class="form-control" placeholder="Search" name="q">
-            <div class="input-group-btn">
-                <button class="btn btn-default" type="submit"><i class="glyphicon glyphicon-search"></i></button>
-            </div>
-        </div>
-        </form>
-    </div> -->
+
             <?php
             require 'search.php';
             display_content1(); ?>
             <div class="collapse navbar-collapse dropdown-content" id="myNavbar">
             
             <ul class="nav navbar-nav navbar-right">
-                <!-- <form> -->
-              <!--   <li>
-                    <a >
-                       <!--  <img src="images/whitewalker.jpg" class="img-circle col-md-5 col-sm-5" alt="Cinque Terre"> -->
-                     <!--   <img src="http://placehold.it/50x50" class="profile-image special-img img-circle"> </a>
-                    <!-- </a> -->
-                <!-- </li> --> 
                 <li><a href="profile1.php">Hi, 
                 <?php 
-                // require 'login.php';
-                // require 'signup.php';
                  echo $_SESSION['username']; ?>
                 </a></li>
         
@@ -86,56 +115,80 @@
     </div>
     <div class="container center-block">
         <div class="row">
-            <div class="left-sidebar col-md-2 col-sm-2">
+            <div class="left-sidebar col-md-2 col-sm-2 col-xs-2">
       
             </div>
-            <div class="backcolor col-md-8 col-sm-8">
+            <div class="backcolor col-md-8 col-sm-8 col-xs-8">
             
-             <!--    <hr> -->
-              <!--   <div class="container" style="height: 2000px;"> -->
                     <?php display_content(); ?>
-                <!-- </div> -->
+                
             </div>
-            <div class="col-md-2 col-sm-2"></div>
+            <div class="col-md-2 col-sm-2 col-xs-2"></div>
         </div>
     </div>
     
             <div class="container container-fix-footer center-block" style="position: fixed;bottom: 0;left: 50%;transform: translateX(-50%);margin-right: 0;margin-left: 0;">
             <div class="row center-block">
-                <div class="col-md-2 col-sm-2">
+                <div class="col-md-2 col-sm-2 col-xs-2">
                   
                 </div>
-                <div class=" col-md-8 col-sm-8">
-                <!-- <hr> -->
-                    <div class="center-block col-md-4 col-sm-4 foot">
-                        <a href="index.php"><button type="button" class="btn btn-info btn-sm">
-                            <span class="glyphicon glyphicon-home"></span> Home
+                <div class=" col-md-8 col-sm-12 col-xs-12">
+               
+                    <div class="center-block col-md-4 col-sm-4 col-xs-4 foot">
+                        <a href="index.php" title="Home"><button type="button" class="btn btn-info btn-sm">
+                            <span class="glyphicon glyphicon-home"></span>
                         </button></a>
-                      <!--   <form action="upload.php" method="POST" enctype="multipart/form-data">
-                            <input type="file" name="fileToUpload" id="fileToUpload">
-                            <input type="submit" value="Upload Image" name="submit11">
-                        </form> -->
+                      
                     </div>
-                    <div class="col-md-4 col-sm-4 foot">
-                        <a href="upload_form.php">
-                            <button type="button" class="btn btn-info btn-sm">
-                                <span class="glyphicon glyphicon-upload"></span> Upload
+                    <div class="col-md-4 col-sm-4 col-xs-4 foot">
+                        <!-- <a href="upload_form.php" title="Upload"> -->
+                            <button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#uploadPhoto">
+                                <span class="glyphicon glyphicon-upload"></span>
                             </button> 
-                        </a>
+                        <!-- </a> -->
                     </div>
-                    <div class="col-md-4 col-sm-4 foot">
-                        <a href="notification.php">
-                        <button type="button" class="btn btn-info btn-sm">
-                            <span class="glyphicon glyphicon-globe"></span> Notifications
+                    <div class="col-md-4 col-sm-4 col-xs-4 foot">
+                        <!-- <a href="notification.php" title="Notifications"> -->
+                        <button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#myNotifs">
+                            <span class="glyphicon glyphicon-globe"></span>
                         </button> 
-                        </a>  
+                        <!-- </a>   -->
                     </div>
                     
                  
                 </div>
             </div>
         </div>
-    <!-- </div> -->
+<!-- <script src="js/lightbox.min.js"></script> -->
+<!-- Modal -->
+  <div class="modal fade" id="myNotifs" role="dialog">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header" style="background-color: white;">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h3>Notifications</h3>
+          <?php display_notifs(); ?>
+      </div>
+      
+    </div>
+  </div>
+  </div>
+  <div class="modal fade" id="uploadPhoto" role="dialog">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header" style="background-color: white;">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h3>Upload Photo</h3>
+          <?php display_upload(); ?>
+      </div>
+      
+    </div>
+  </div>
+  </div>
 <script type="text/javascript">
     function filePreview(input){
         if(input.files && input.files[0]){
@@ -159,11 +212,12 @@
     $("#follow_form").show();
     $("#unfollow_form").hide();
   });
+ $(function(){
+        $('#info').click(function() {
+            $(this).hide();
+        });
     }); 
-    $(document).ready(function(){
-    $('[data-toggle="popover"]').popover();   
-});
-</script>
+   </script>
 </body>
 
 </html>

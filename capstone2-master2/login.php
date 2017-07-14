@@ -31,7 +31,8 @@
  		}
  			// header('location:home.php');
  		}else{
- 			echo "not found";
+ 			// echo "not found";
+ 			header('location:home.php');
  		}
 	}
 // }

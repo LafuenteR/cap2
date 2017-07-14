@@ -1,6 +1,8 @@
 
 <?php
-
+function get_title(){
+    echo "View other Profile";
+}
 function display_content(){
 require 'connection.php';
 // require 'display_other_prof.php';

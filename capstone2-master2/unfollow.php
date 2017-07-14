@@ -11,5 +11,4 @@
         mysqli_query($conn,$sql);
         
 	}
-	// require 'profile.php';
 ?>

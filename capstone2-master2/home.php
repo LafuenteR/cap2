@@ -1,3 +1,9 @@
+<?php 
+session_start();
+if(isset($_SESSION['username'])){
+  	header('location:index.php');
+}
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -26,6 +32,9 @@
     }
     #log-in-div, #sign-up-h5{
     	display: none;
+    }
+    ul > li{
+    	list-style-type: none;
     }
     </style>
 </head>
@@ -70,9 +79,8 @@
 		    			</form>
 	    			</div>
 	    			<div id="log-in-h5" class="sign-log-border container-fluid">
-	    			<!-- <form> -->
+	    			
 	    				<h5>Already have an account? <a id="log-in-a" href="#">Log In</a></h5>
-	    			<!-- </form> -->
 	    			</div>
 	    			<div id="log-in-div" class="sign-log-border container-fluid">
 		    			<h1>PhotoSharing</h1>
@@ -91,6 +99,14 @@
 	    		</div>
 	    	</div>
 	    </div>
+
+	</div>
+	<div class="container row">
+		<ul class="col-md-12 col-sm-12 col-sm-12">
+			<li class="col-md-4 col-sm-4 col-xs-4">About</li>
+			<li class="col-md-4 col-sm-4 col-xs-4">Contact Us</li>
+			<li class="col-md-4 col-sm-4 col-xs-4">&copy; 2017 Photosharing</li>
+		</ul>
 	</div>
 </body>
 <script type="text/javascript">
@@ -105,7 +121,7 @@
 		$("#log-in-h5").show();
 		$("#log-in-div").hide();
 		$("#sign-up-h5").hide();
-	});
+	});z
 </script>
 </html>
-
+ 

@@ -14,25 +14,16 @@ function get_title(){
 		    Select image to upload:
 		    <input class='btn btn-default' type='file' name='fileToUpload' id='fileToUpload'>
 		    <input class='btn btn-info' type='submit' value='Upload Image' name='submit11'><br>
-		    <input class='form-control' type='text' name='caption' placeholder='Caption...'>
-		</form>";
+		    <input class='form-control' type='text' name='caption' placeholder='Caption...'>";
+		    echo "<script src='preview.js'>";
+		echo "<?script>";
+		echo "</form>";
+		
 	}
+	
 }
 	require 'loginhome.php';
 ?>
 
-	<!-- function filePreview(input){
-		if(input.files && input.files[0]){
-			var reader = new FileReader();
-			reader.onload = function(e){
-				$('#uploadform + img').remove();
-				$('#uploadform').after('<img src="'+e.target.result+'" width="450" height="300"/>');
-			}
-			reader.readAsDataURL(input.files[0]);
-		}
-	}
-	$('#fileToUpload').change(function(){
-		filePreview(this);
-	}); -->
 
 
